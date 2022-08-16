@@ -2,6 +2,27 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.redondeado {
-    border-radius: 5px;
+.input {
+    border: 1px solid #919193;
+    font-size: 1.25rem;
+    line-height: normal;
+    width: 100%;
+    height: auto;
+    margin: 0.5rem 0;
+    padding: 0.75rem;
+    border-radius: 8px;
+    color: #2c2d30;
   }
+.btn-analizar{
+    margin: 2rem auto 1rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: 16px;
+    background-color: #0f47ff;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}

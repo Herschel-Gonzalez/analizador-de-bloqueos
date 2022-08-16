@@ -32,6 +32,7 @@ function analizarAsientos() {
     //Comparamos si los bloqueos del sembrado existen en el reporte de bloqueos
 
     var salida = "";
+    console.log(sembrado);
     for (let i = 0; i < sembrado.length; i++) {
         if (!reporte.includes(sembrado[i])) {
             salida+=sembrado[i]+" no esta bloqueado <br>";
@@ -53,8 +54,8 @@ function unirSeccionyAsiento(secciones, asientos) {
     var asientosLimpios =[];
 
     //agrupamos las secciones
-    for (let i = 0; i < secciones.length; i++) {
-        if (secciones[i] == ' ') {
+    for (let i = 0; i <= secciones.length; i++) {
+        if (secciones[i] == ' '||i==secciones.length) {
             seccionesLimpias.push(aux);
             aux = "";
         } else {
@@ -65,8 +66,8 @@ function unirSeccionyAsiento(secciones, asientos) {
 
     //agrupamos los asientos
     aux="";
-    for (let i = 0; i < asientos.length; i++) {
-        if (asientos[i] == ' ') {
+    for (let i = 0; i <= asientos.length; i++) {
+        if (asientos[i] == ' '||i==asientos.length) {
             asientosLimpios.push(aux);
             aux = "";
         } else {

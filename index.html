@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/read-excel-file@5.4.5/bundle/read-excel-file.min.js"></script>
 
     <title>Analisis</title>
     
@@ -22,7 +23,7 @@
             <label for="InputSeccionReporte">
                 Pega aquí la columna SECCIÓN completa:
             </label>
-            <input class="redondeado" id="InputSeccionReporte"/>
+            <input class="input" id="InputSeccionReporte"/>
             
         </form>
 
@@ -32,7 +33,7 @@
             <label for="InputAsientoReporte">
                 Pega aquí la columna ASIENTO completa:
             </label>
-            <input class="redondeado" id="InputAsientoReporte"/>
+            <input class="input" id="InputAsientoReporte"/>
             
         </form>
 
@@ -48,18 +49,18 @@
             <label for="InputSeccionSembrado">
                 Pega aquí la columna SECCIÓN completa:
             </label>
-            <input class="redondeado" id="InputSeccionSembrado"/>
+            <input class="input" id="InputSeccionSembrado"/>
         </form>
         <br>
         <form>
             <label for="InputAsientoSembrado">
                 Pega aquí la columna ASIENTO completa:
             </label>
-            <input class="redondeado" id="InputAsientoSembrado"/>
+            <input class="input" id="InputAsientoSembrado"/>
             
         </form>
         <br>
-        <button type="button" onclick="analizarAsientos()">
+        <button class="btn-analizar" type="button" onclick="analizarAsientos()">
             Analizar
         </button>
 
