@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="styles.css">
+
+    <title>Analisis</title>
+    
+</head>
+<body>      
+    
+    <h1>Analiza si existen los bloqueos</h1>
+    <script src="./index.js"></script>
+
+    <section>
+        <h2>Reporte de bloqueos</h2>
+        
+        <form>
+            <label for="InputSeccionReporte">
+                Pega aquí la columna SECCIÓN completa:
+            </label>
+            <input class="redondeado" id="InputSeccionReporte"/>
+            
+        </form>
+
+        <br>
+
+        <form>
+            <label for="InputAsientoReporte">
+                Pega aquí la columna ASIENTO completa:
+            </label>
+            <input class="redondeado" id="InputAsientoReporte"/>
+            
+        </form>
+
+        <br>
+
+        
+
+    </section>
+
+    <section>
+        <h2>Sembrado</h2>
+        <form>
+            <label for="InputSeccionSembrado">
+                Pega aquí la columna SECCIÓN completa:
+            </label>
+            <input class="redondeado" id="InputSeccionSembrado"/>
+        </form>
+        <br>
+        <form>
+            <label for="InputAsientoSembrado">
+                Pega aquí la columna ASIENTO completa:
+            </label>
+            <input class="redondeado" id="InputAsientoSembrado"/>
+            
+        </form>
+        <br>
+        <button type="button" onclick="analizarAsientos()">
+            Analizar
+        </button>
+
+
+    <center>
+        <label id="salida">
+            
+        </label>
+    </center>
+    
+</body>
+</html>
