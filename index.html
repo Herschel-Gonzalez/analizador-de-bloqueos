@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/read-excel-file@5.4.5/bundle/read-excel-file.min.js"></script>
+    <script src="./read-excel-file.min.js"></script>
 
     <title>Analisis</title>
     
@@ -14,58 +14,29 @@
 <body>      
     
     <h1>Analiza si existen los bloqueos</h1>
+
+    <p>
+        Selecciona un archivo Excel con formato .xlsx<br>
+        El archivo debe contener:<br>
+        1.- En la 1 columna las secciones del reporte de bloqueos.<br>
+        2.- En la 2 columna los asientos del reporte de bloqueos.<br>
+        3.- En la 3 columna las secciones del sembrado.<br>
+        4.- En la 4 columna los asientos del sembrado.<br>
+    </p>
+
+    <br>
+    
+    <center>
+        <input type="file" id="input">
+    </center>
+
+    
+
     <script src="./index.js"></script>
-
-    <section>
-        <h2>Reporte de bloqueos</h2>
-        
-        <form>
-            <label for="InputSeccionReporte">
-                Pega aquí la columna SECCIÓN completa:
-            </label>
-            <input class="input" id="InputSeccionReporte"/>
-            
-        </form>
-
-        <br>
-
-        <form>
-            <label for="InputAsientoReporte">
-                Pega aquí la columna ASIENTO completa:
-            </label>
-            <input class="input" id="InputAsientoReporte"/>
-            
-        </form>
-
-        <br>
-
-        
-
-    </section>
-
-    <section>
-        <h2>Sembrado</h2>
-        <form>
-            <label for="InputSeccionSembrado">
-                Pega aquí la columna SECCIÓN completa:
-            </label>
-            <input class="input" id="InputSeccionSembrado"/>
-        </form>
-        <br>
-        <form>
-            <label for="InputAsientoSembrado">
-                Pega aquí la columna ASIENTO completa:
-            </label>
-            <input class="input" id="InputAsientoSembrado"/>
-            
-        </form>
-        <br>
-        <button class="btn-analizar" type="button" onclick="analizarAsientos()">
-            Analizar
-        </button>
 
 
     <center>
+        <br>
         <label id="salida">
             
         </label>

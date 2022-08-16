@@ -1,90 +1,70 @@
 
+var input = document.getElementById("input");
+var reporteAsientos = [];
+var sembradoAsientos = [];
+input.addEventListener('change', function () {
+    readXlsxFile(input.files[0]).then(function (data) {
 
-function analizarAsientos() {
+        for (let i = 1; i < data.length; i++) {
 
-    //Reporte de bloqueos
+            if (data[i][0] != null && data[i][1] != null) {
+                //almacenamos los asientos del reporte
+                var aux = data[i][0];
+                var section = quitarCerosAlaIzquierda(aux);
+                reporteAsientos.push((section+"-"+ data[i][1]).toUpperCase());
+                
+                
+            }
 
-    
-
-    const inputSeccionReporte = document.getElementById("InputSeccionReporte");
-    const seccionReporte = String(inputSeccionReporte.value);
-
-    const inputAsientoReporte = document.getElementById("InputAsientoReporte");
-    const asientoReporte = String(inputAsientoReporte.value);
-
-
-
-    //Sembrado
-    const inputSeccionSembrado = document.getElementById("InputSeccionSembrado");
-    const seccionSembrado = String(inputSeccionSembrado.value);
-
-    const inputAsientoSembrado = document.getElementById("InputAsientoSembrado");
-    const asientoSembrado = String(inputAsientoSembrado.value);
-
-    //Se une la seccion con el asiento para poder comparar
-
-    //Reporte de bloqueos
-    var reporte = unirSeccionyAsiento(seccionReporte, asientoReporte);
-
-    //Sembrado
-    var sembrado = unirSeccionyAsiento(seccionSembrado, asientoSembrado);
-
-    //Comparamos si los bloqueos del sembrado existen en el reporte de bloqueos
-
-    var salida = "";
-    console.log(sembrado);
-    for (let i = 0; i < sembrado.length; i++) {
-        if (!reporte.includes(sembrado[i])) {
-            salida+=sembrado[i]+" no esta bloqueado <br>";
+            if (data[i][2] != null && data[i][3] != null) {
+                //almacenamos los asientos del sembrado
+                sembradoAsientos.push((data[i][2] +"-"+ data[i][3]).toUpperCase());
+            }
         }
 
-    }
 
-    document.getElementById("salida").innerHTML=salida;
+       // console.log(reporteAsientos);
+       // console.log(sembradoAsientos);
 
+        //revisamos si cada bloqueo del sembrado existe en el reporte
+        var salida = "";
+        for (let i = 0; i < sembradoAsientos.length; i++) {
+            if (!reporteAsientos.includes(sembradoAsientos[i])) {
+                salida+=sembradoAsientos[i] + " no esta bloqueado <br>";
+            }
 
-}
-
-function unirSeccionyAsiento(secciones, asientos) {
-
-    var aux = "";
-    var seccionesConAsiento = [];
-
-    var seccionesLimpias =[];
-    var asientosLimpios =[];
-
-    //agrupamos las secciones
-    for (let i = 0; i <= secciones.length; i++) {
-        if (secciones[i] == ' '||i==secciones.length) {
-            seccionesLimpias.push(aux);
-            aux = "";
-        } else {
-            aux += secciones[i];
         }
 
-    }
-
-    //agrupamos los asientos
-    aux="";
-    for (let i = 0; i <= asientos.length; i++) {
-        if (asientos[i] == ' '||i==asientos.length) {
-            asientosLimpios.push(aux);
-            aux = "";
-        } else {
-            aux += asientos[i];
+        if (salida!="") {
+            document.getElementById("salida").innerHTML=salida;
+        }else{
+            document.getElementById("salida").innerHTML="Todos los asientos del sembrado ya se encuentran bloqueados";
         }
 
-    }
+        
 
-    //unimos secciones con asientos
-    for (let i = 0; i < seccionesLimpias.length; i++) {
-        seccionesConAsiento.push(seccionesLimpias[i]+"-"+asientosLimpios[i]);
+
+
+    });
+});
+
+var prueba = quitarCerosAlaIzquierda("T1-11");
+
+function quitarCerosAlaIzquierda(cadena){
+    var antesGuion = "";
+    var despuesGuion = "";
+    var enElguion = false;
+    for (let i = 0; i < cadena.length; i++) {
+        if (cadena[i]!='-'&& enElguion==false) {
+            antesGuion+=cadena[i];
+            
+        }else{
+            enElguion=true;
+            despuesGuion+=cadena[i];
+        }
         
     }
-
-    return seccionesConAsiento;
-
+    var aux = Number(despuesGuion);
+    var salida = antesGuion+=+aux;
+    return salida;
 }
-
-
-
